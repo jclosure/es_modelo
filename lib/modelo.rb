@@ -1,8 +1,8 @@
 require 'rubygems'
-require 'active_record'
-require 'active_record/base'
 require 'mysql2' # or 'pg' or 'sqlite3'
 require 'sqlite3'
+require 'active_record'
+require 'active_record/base'
 
 ActiveRecord::Base.default_timezone = :utc
 ActiveRecord::Base.time_zone_aware_attributes = true
@@ -59,19 +59,4 @@ class Product < ActiveRecord::Base
   belongs_to :store
   
 end
-
- 
-
-## play with models
-
-p = Product.create name: "apples"
-s = Store.create name: "store abc"
-
-p.store = s
-
-p.save
-
-puts p.to_json
-
-puts Product.all.to_json
 
